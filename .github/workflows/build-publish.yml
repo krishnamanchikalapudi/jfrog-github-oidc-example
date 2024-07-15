@@ -41,6 +41,11 @@ jobs:
           \"subject_token_type\": \"urn:ietf:params:oauth:token-type:id_token\"}" \
           | jq .access_token | tr -d '"')
           echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
+       - name: Setup jfrog cli
+         uses: jfrog/setup-jfrog-cli@v3
+         env:
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ env.ACCESS_TOKEN }}
    
    #    - name: Setup JFrog CLI
    #      uses: jfrog/setup-jfrog-cli@v3

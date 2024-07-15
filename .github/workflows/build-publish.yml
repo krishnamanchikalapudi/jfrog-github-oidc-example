@@ -12,7 +12,7 @@ jobs:
      runs-on: ubuntu-latest
      env:
       OIDC_PROVIDER: 'deepu19t'
-      PLATFORM_REPO: 'blr-npm-go-td'
+      PLATFORM_REPO: 'blr-npm-go-td-virtual'
      defaults:
       run:
         working-directory: ./package

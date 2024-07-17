@@ -46,12 +46,12 @@ jobs:
           JF_URL: ${{ secrets.JF_URL }}
           JF_ACCESS_TOKEN: ${{ env.ACCESS_TOKEN }}
    
-   #    - name: Setup JFrog CLI
-   #      uses: jfrog/setup-jfrog-cli@v3
-    #     env:  
-    #       JF_URL: ${{ secrets.JF_URL }}
-  #       with:
-   #        oidc-provider-name: ${{ env.OIDC_PROVIDER }}
+       - name: Setup JFrog CLI
+         uses: jfrog/setup-jfrog-cli@v3
+         env:  
+           JF_URL: ${{ secrets.JF_URL }}
+         with:
+           oidc-provider-name: ${{ env.OIDC_PROVIDER }}
       
 
        - name: Set CLI Config

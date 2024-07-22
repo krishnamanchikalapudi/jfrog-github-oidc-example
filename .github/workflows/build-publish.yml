@@ -11,6 +11,7 @@ jobs:
      runs-on: ubuntu-latest
      env:
       OIDC_PROVIDER: 'deepu19t'
+      OIDC_AUDIENCE: 'access-oidc-demo'
       PLATFORM_REPO: 'blr-npm-go-td-virtual'
      defaults:
       run:

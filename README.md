@@ -3,7 +3,6 @@
 This example repository demonstrates how to seamlessly integrate GitHub Actions with JFrog, leveraging OpenID Connect (OIDC) for secure and authenticated interactions. This integration ensures a streamlined and automated workflow for managing artifacts with JFrog Artifactory in your GitHub repositories.
 
 ## Table of Contents
-
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)

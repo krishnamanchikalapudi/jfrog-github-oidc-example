@@ -13,7 +13,7 @@ jobs:
             - name: Get id token
               run: |
                     
-                    ID_TOKEN=$(curl -sLS -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+                    ID_TOKEN=$(curl -sLS -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer ${{ vars.JF_ACCESS_TOKEN }}" \
                     "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=krishnam-github-org-all-repos" | jq .value | tr -d '"')
 
                     echo "# Token Info :pushpin:" >> $GITHUB_STEP_SUMMARY

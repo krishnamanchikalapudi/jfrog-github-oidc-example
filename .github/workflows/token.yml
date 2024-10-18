@@ -17,8 +17,7 @@ jobs:
                 echo " " >> $GITHUB_STEP_SUMMARY
                 echo "Request URL: ${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=krishnam-github-org-all-repos"
                 cat id_token.json  >> $GITHUB_STEP_SUMMARY
-                ID_TOKEN=`cat id_token.json | jq .value `
-                echo "ID_TOKEN=${ID_TOKEN}" >> $GITHUB_ENV
+
                     
             - name: Exchange token with access
               env:

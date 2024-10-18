@@ -12,15 +12,13 @@ jobs:
         steps:
             - name: Get id token
               run: |
-                    
-                    ID_TOKEN=$(curl -sLS -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer ${{ vars.JF_ACCESS_TOKEN }}" \
-                    "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=krishnam-github-org-all-repos" | jq .value | tr -d '"')
-
-                    echo "# Token Info :pushpin:" >> $GITHUB_STEP_SUMMARY
-                    echo " " >> $GITHUB_STEP_SUMMARY
-                    echo "Request URL: ${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=krishnam-github-org-all-repos"
-                    echo "TOKEN: ${ID_TOKEN}" >> $GITHUB_STEP_SUMMARY
-                    echo "ID_TOKEN=${ID_TOKEN}" >> $GITHUB_ENV
+                curl -sLS -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer ${{vars.JF_ACCESS_TOKEN}}" "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=krishnam-github-org-all-repos -o id_token.json
+                echo "# Token Info :pushpin:" >> $GITHUB_STEP_SUMMARY
+                echo " " >> $GITHUB_STEP_SUMMARY
+                echo "Request URL: ${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=krishnam-github-org-all-repos"
+                cat id_token.json  >> $GITHUB_STEP_SUMMARY
+                ID_TOKEN=`cat id_token.json | jq .value | tr -d '"'`
+                echo "ID_TOKEN=${ID_TOKEN}" >> $GITHUB_ENV
                     
             - name: Exchange token with access
               env:
